@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>UbiCOMP'24 Workshop XAI for U: Explainable AI for Ubiquitous, Pervasive and Wearable
+            Computing</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+
+        <style>
+
+    .card {
+        width: 100%;
+      height: 150px;
+      perspective: 1000px;
+    }
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .card:hover .card-inner,
+    .card.flip .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card-front {
+      background-color: #f5f5f5;
+    }
+    .card-back {
+      background-color: #e6e6e6;
+      transform: rotateY(180deg);
+    }
+    .row:not(:last-child) {
+      margin-bottom: 20px; /* Add space between rows */
+    }
+  </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">UbiCOMP'24 XAI for U</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#cfp">Call for Papers</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
+                        
+                        <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <!-- <div class="masthead-subheading">Welcome To Our Studio!</div> -->
+                <div class="masthead-heading text-uppercase">XAI for U: Explainable AI for Ubiquitous, Pervasive and Wearable
+                    Computing</div>
+                    <p class="masthead-subheading">In conjunction with UbiComp'24 Melbourne, Australia</p>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#about">Tell Me More</a>
+            </div>
+        </header>
+        <!-- About -->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                    </div>
+                    <div class="col-8 text-center">
+                        <h2 class="section-heading text-uppercase">About</h2>
+                        <p class="text-muted text-lg-start">The XAI for U workshop is dedicated to addressing the critical need for transparency in AI
+                            systems embedded in our daily lives through mobile systems, wearables, and smart
+                            environments. The workshop aims to foster the development and application of Explainable
+                            AI (XAI) tools to overcome the opacity of these systems, focusing on the unique challenges
+                            of XAI in time-series and multimodal data, interconnected ML components, and
+                            user-centered explanations. This workshop offers a vital platform for sharing recent
+                            advancements, addressing open challenges, and proposing future research directions to
+                            ensure AI-driven solutions are explainable, ethical, and aligned with user expectations.</p>
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+                
+        </section>
+
+        <!-- cfp-->
+        <section class="page-section bg-light" id="cfp">
+            <div class="container">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-9 text-center">
+                    <h2 class="section-heading text-uppercase">Call For Papers</h2>
+                    <p class="section-subheading text-muted text-lg-start">We invite submissions of original research, insightful case studies, and work in progress
+                        that address XAI applications within Ubiquitous and Wearable Computing, including but not limited to:</h3>
+
+
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-sm-12 col-md-6">
+                                <div class="card" onclick="toggleFlip(this)">
+                                  <div class="card-inner">
+                                    <div class="card-front">
+                                      <h5>XAI in time-series and multimodal data analysis</h5>
+                                    </div>
+                                    <div class="card-back">
+                                      <p>Techniques and challenges in
+                                        interpreting complex data streams from wearable and ubiquitous computing devices.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6">
+                                <div class="card" onclick="toggleFlip(this)">
+                                  <div class="card-inner">
+                                    <div class="card-front">
+                                      <h5>User-centered explanations for AI-driven systems</h5>
+                                    </div>
+                                    <div class="card-back">
+                                      <p>Designing explanations that are meaningful and accessible to end-users.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6">
+                                <div class="card" onclick="toggleFlip(this)">
+                                  <div class="card-inner">
+                                    <div class="card-front">
+                                      <h5>Deployment and evaluation of XAI tools in real-world scenarios</h5>
+                                    </div>
+                                    <div class="card-back">
+                                      <p>Case studies and empirical research on the effectiveness of XAI applications.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6">
+                                <div class="card" onclick="toggleFlip(this)">
+                                  <div class="card-inner">
+                                    <div class="card-front">
+                                      <h5>Multimodal XAI for behavior analysis</h5>
+                                    </div>
+                                    <div class="card-back">
+                                      <p>Leveraging diverse data sources for comprehensive behavior analysis.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6">
+                                <div class="card" onclick="toggleFlip(this)">
+                                  <div class="card-inner">
+                                    <div class="card-front">
+                                      <h5>Interconnected ML components in wearable and ubiquitous computing</h5>
+                                    </div>
+                                    <div class="card-back">
+                                      <p>Strategies for explaining the dynamics and decisions of interconnected AI systems and models.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6">
+                                <div class="card" onclick="toggleFlip(this)">
+                                  <div class="card-inner">
+                                    <div class="card-front">
+                                      <h5>Ethical considerations and user privacy in XAI</h5>
+                                    </div>
+                                    <div class="card-back">
+                                      <p>Addressing the ethical implications and privacy concerns of deploying XAI in ubiquitous computing.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6">
+                                <div class="card" onclick="toggleFlip(this)">
+                                  <div class="card-inner">
+                                    <div class="card-front">
+                                      <h5>Multimodal XAI in affective computing</h5>
+                                    </div>
+                                    <div class="card-back">
+                                      <p>Techniques for understanding and interpreting human emotions through AI.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6">
+                                <div class="card" onclick="toggleFlip(this)">
+                                  <div class="card-inner">
+                                    <div class="card-front">
+                                      <h5>Empirical evaluation methods</h5>
+                                    </div>
+                                    <div class="card-back">
+                                      <p>Methods for assessing the effectiveness and impact of XAI and multimodal AI systems.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                    
+                    <!-- <ul class="text-muted text-lg-start">
+                        <li>XAI in time-series and multimodal data analysis: Techniques and challenges in
+                            interpreting complex data streams from wearable and ubiquitous computing devices.<a href="#" data-bs-toggle="tooltip" data-bs-title="Default tooltip"> here </a></li>
+                        <li>Interconnected ML components in wearable and ubiquitous computing: Strategies for
+                            explaining the dynamics and decisions of interconnected AI systems and models.</li>
+                        <li>User-centered explanations for AI-driven systems: Designing explanations that are
+                            meaningful and accessible to end-users</li>
+                        <li>Ethical considerations and user privacy in XAI: Addressing the ethical implications
+                            and privacy concerns of deploying XAI in ubiquitous computing.</li>
+                        <li>Deployment and evaluation of XAI tools in real-world scenarios: Case studies and
+                            empirical research on the effectiveness of XAI applications.</li>
+                        <li>Multimodal XAI in affective computing: Techniques for understanding and interpreting
+                            human emotions through AI.</li>
+                        <li>Multimodal XAI for behavior analysis: Leveraging diverse data sources for
+                            comprehensive behavior analysis.</li>
+                        <li>Empirical evaluation methods: Methods for assessing the effectiveness and impact
+                            of XAI and multimodal AI systems.</li>
+                        <li>Cognition-enabled explanations: Developing AI systems capable of providing
+                            explanations that mimic human cognitive processes.</li>
+                        <li>Explainable AI/ML (generation): Generating transparent and understandable AI
+                            models and decisions.</li>
+                        <li data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">Explanation communication through wearable devices: Innovative methods for
+                            delivering AI explanations via wearable technology.</li>
+                        <li>Explanation comprehension and impact analysis: Investigating how users interpret AI
+                            explanations and the effects on their trust and behavior.</li>
+                    </ul> -->
+                </div>
+                <div class="col"></div>
+            </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-file fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Paper format</h4>
+                        <p class="text-muted">Submissions
+                            should be up to 4 pages (including references). ACM requires UbiComp/ISWC 2024 workshop submissions to use the double-column
+                            template. Please carefully read the <a href="https://www.ubicomp.org/ubicomp-iswc-2023/authors/formatting/">UbiComp website</a> about the template:
+                            </p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa-regular fa-calendar-days fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Important Dates</h4>
+                        <ul class="text-lg-start text-muted">
+                            <li>Submission deadline: <b>June 7, 2024</b></li>
+                            <li>Notification of acceptance: <b>June 28, 2024</b></li>
+                            <li>Camera-ready deadline: <b>July 26, 2024</b></li>
+                            <li>Workshop date: <b>October 5-6, 2024</b></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa-solid fa-upload fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Submission</h4>
+                        <p class="text-muted">Submissions can be made via PCS at <a href="http://new.precisionconference.com/sigchi">http://new.precisionconference.com/sigchi.</a></href> See below for more information.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ 
+
+        <!-- Timeline-->
+        <!-- <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Important Dates</h2>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        </span></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>June 7, 2024</h4>
+                                <h4 class="subheading text-muted">Submission deadline for workshop papers</h4>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>June 28, 2024</h4>
+                                <h4 class="subheading text-muted">Notification of Workshop papers by each accepted Workshop</h4>
+                            </div>
+                         </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>July 26, 2024</h4>
+                                <h4 class="subheading text-muted">Deadline for camera-ready version of workshop papers to be included
+                                    in the ACM DL</h4>
+                            </div>
+                        </div>
+                    </li> -->
+                    <!-- <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/4.jpg" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>July 2020</h4>
+                                <h4 class="subheading">Phase Two Expansion</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        </div>
+                    </li> -->
+                    <!-- <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h4>
+                                Be Part
+                                <br />
+                                Of Our
+                                <br />
+                                Story!
+                            </h4>
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>July 2020</h4>
+                                <h4 class="subheading">Phase Two Expansion</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section> -->
+        <!-- Portfolio Grid-->
+        <!-- <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Portfolio</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4"> -->
+                        <!-- Portfolio item 1-->
+                        <!-- <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Threads</div>
+                                <div class="portfolio-caption-subheading text-muted">Illustration</div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-lg-4 col-sm-6 mb-4"> -->
+                        <!-- Portfolio item 2-->
+                        <!-- <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Explore</div>
+                                <div class="portfolio-caption-subheading text-muted">Graphic Design</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4"> -->
+                        <!-- Portfolio item 3-->
+                        <!-- <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/3.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Finish</div>
+                                <div class="portfolio-caption-subheading text-muted">Identity</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0"> -->
+                        <!-- Portfolio item 4-->
+                        <!-- <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/4.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Lines</div>
+                                <div class="portfolio-caption-subheading text-muted">Branding</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0"> -->
+                        <!-- Portfolio item 5-->
+                        <!-- <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/5.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Southwest</div>
+                                <div class="portfolio-caption-subheading text-muted">Website Design</div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-lg-4 col-sm-6"> -->
+                        <!-- Portfolio item 6-->
+                        <!-- <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="assets/img/portfolio/6.jpg" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Window</div>
+                                <div class="portfolio-caption-subheading text-muted">Photography</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+
+        <section id="schedule">
+            <div class="container">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Tentative Schedule</h2>
+                    <hr class="primary">
+                </div>
+                <div class="col-lg-12 text-left">
+    
+                <table class="table table-striped">
+                  <thead class="thead-default">
+                    <tr>
+                      <th>Time </th>
+                      <th>Event</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+    
+                      <tr>
+                      <th class="text-nowrap" scope="row">9:00 - 9:15</th>
+                      <td>Welcome</td>
+                      </tr>
+    
+                      <tr>
+                      <th class="text-nowrap" scope="row">9:15 - 10:00</th>
+                      <td>Keynote 1 + Q&A</td>
+                      </tr>
+    
+                      <tr>
+                      <th class="text-nowrap" scope="row">10:00 - 10:15</th>
+                      <td>Coffee break + Poster tour</td>
+                      </tr>
+    
+                      <tr>
+                      <th class="text-nowrap" scope="row">10:15 - 11:00</th>
+                      <td>Oral presentations – Part 1</b> 
+                      </td>
+                      </tr>
+
+                      <tr>
+                        <th class="text-nowrap" scope="row">11:00 - 11:45</th>
+                        <td>Keynote 2 + Q&A</td>
+                        </tr>
+        
+                        <tr>
+                        <th class="text-nowrap" scope="row">11:45 - 13:15</th>
+                        <td>Lunch break</td>
+                        </tr>
+        
+                        <tr>
+                        <th class="text-nowrap" scope="row">13:15 - 14:00</th>
+                        <td>Oral presentations – Part 2</b> 
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th class="text-nowrap" scope="row">14:00 - 15:00</th>
+                        <td>Panel discussion</td>
+                        </tr>
+        
+                        <tr>
+                        <th class="text-nowrap" scope="row">15:00 - 15:15</th>
+                        <td>Coffee break + Poster tour</td>
+                        </tr>
+        
+                        <tr>
+                        <th class="text-nowrap" scope="row">15:15 - 16:15</th>
+                        <td>Group discussion (3-4 groups)</b> 
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <th class="text-nowrap" scope="row">16:15 - 17:00</th>
+                        <td>Group discussion – summary</td>
+                        </tr>
+        
+                        <tr>
+                        <th class="text-nowrap" scope="row">17:00 - 17:30</th>
+                        <td>Conclusion and farewell</td>
+                        </tr>
+        
+    
+                </tbody>
+                </table>
+                </div>
+    
+        </div>
+        </section>
+        <!-- Team-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Organising Team</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle"  alt="..." />
+                            <h4>Martin Gjoreski</h4>
+                            <p class="text-muted">Università della Svizzera italiana,
+                                Switzerland</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" ><i class="fa-solid fa-envelope"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" ><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="" alt="..." />
+                            <h4>Teena Hassan</h4>
+                            <p class="text-muted">Bonn-Rhein-Sieg University of Applied
+                                Sciences, Germany</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" ><i class="fa-solid fa-envelope"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" ><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="" alt="..." />
+                            <h4>Mor Vered,</h4>
+                            <p class="text-muted">Monash University, Australia</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" ><i class="fa-solid fa-envelope"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle"  alt="..." />
+                            <h4>Sebastian Houben</h4>
+                            <p class="text-muted">Bonn-Rhein-Sieg University of
+                                Applied Sciences, Germany</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa-solid fa-envelope"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="" alt="..." />
+                            <h4>Stefan Kopp</h4>
+                            <p class="text-muted">Bielefeld University, Germany</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa-solid fa-envelope"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" ><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="" alt="..." />
+                            <h4>Mor Vered,</h4>
+                            <p class="text-muted">Monash University, Australia</p>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Contact Us</h2>
+                    <h3 class="section-subheading text-muted">ENTER EMAIL</h3>
+                </div>
+                <
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+                    <!-- <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div> -->
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+            function toggleFlip(card) {
+              card.classList.toggle('flip');
+            }
+          </script>
+    </body>
+</html>
