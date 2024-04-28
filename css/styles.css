@@ -104,6 +104,15 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+
+.zoomable-image {
+  transition: transform 0.2s; /* Smooth transition */
+}
+
+.zoomable-image:hover {
+  transform: scale(1.1); /* Scale up by 10% */
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
