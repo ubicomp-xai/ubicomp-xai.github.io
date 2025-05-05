@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Redirecting to UBICOM24-XAI</title>
-<meta http-equiv="refresh" content="0; URL=https://ubicomp-xai.github.io/ubicomp24-xai/">
-<link rel="canonical" href="https://ubicomp-xai.github.io/ubicomp24-xai/">
+<title>Redirecting to UBICOMP-XAI</title>
+<script>
+    fetch('_config.yaml')
+        .then(response => response.text())
+        .then(yaml => {
+            const url = yaml.match(/redirect_url:\s*(.*)/)[1].trim();
+            window.location.href = url;
+        });
+</script>
